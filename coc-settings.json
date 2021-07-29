@@ -1,0 +1,32 @@
+{
+	"diagnostic.checkCurrentLine": true,
+	"Lua.diagnostics.globals": ["vim"],
+	"python.analysis.extraPaths": [".", "src"],
+	"codeLens.enable": true,
+	"rust-analyzer.server.path": "rust-analyzer",
+
+	"languageserver": {
+		"elixirLS": {
+			"command": "/usr/lib/elixir-ls/language_server.sh",
+			"filetypes": ["elixir", "eelixir"]
+		},
+
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": ["--lsp"],
+			"rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+			"filetypes": ["haskell", "lhaskell"]
+		},
+
+		"sql": {
+			"command": "sql-language-server",
+			"args" : ["up", "--method", "stdio"],
+			"filetypes": ["sql", "mysql"]
+		},
+
+		"nix": {
+			"command": "rnix-lsp",
+			"filetypes": ["nix"]
+		}
+	}
+}
