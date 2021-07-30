@@ -2,8 +2,10 @@ return require("packer").startup(function(use)
 	-- Packer manages itself
 	use {"wbthomason/packer.nvim"};
 
-	-- Lua api for better mapping
+	-- Lua apis
 	use {"svermeulen/vimpeccable"};
+	use {"nvim-lua/popup.nvim"};
+	use {"nvim-lua/plenary.nvim"};
 
 	use {"vim-airline/vim-airline"};
 	use {"edkolev/tmuxline.vim", opt = true};
@@ -12,6 +14,7 @@ return require("packer").startup(function(use)
 	-- Syntax and language specific stuff
 	use {"sheerun/vim-polyglot"};
 	use {"euclidianAce/BetterLua.vim", opt = true, ft = {"lua"}};
+	use {"bfredl/nvim-luadev", opt = true, ft = {"lua"}};
 	use {"OmniSharp/omnisharp-vim", opt = true, ft = {"cs"}};
 	use {"lervag/vimtex", opt = true, ft = {"tex"}};
 	use {"slashmili/alchemist.vim", opt = true, ft = {"elixir", "eelixir"}};
@@ -36,19 +39,20 @@ return require("packer").startup(function(use)
 	use {"mattn/emmet-vim", opt = true, ft = {"html", "css", "js", "ts"}};
 
 	-- Misc
+	use {"mbbill/undotree"};
+	use {"preservim/nerdtree", opt = true, cmd = {"NERDTreeToggle", "NERDTree"}};
 	use {"preservim/nerdcommenter"};
 	use {"Raimondi/delimitMate"};
-
 	use {"tpope/vim-fugitive"};
 	use {"tpope/vim-dispatch", opt = true, cmd = {"Dispatch", "Make", "Focus", "Start"}};
-	use {"preservim/nerdtree", opt = true, cmd = {"NERDTreeToggle", "NERDTree"}};
 	use {"vim-utils/vim-man"};
-	use {"mbbill/undotree"};
-	use {"nvim-telescope/telescope.nvim"};
 	use {"preservim/tagbar"};
-	use {"lyuts/vim-rtags", opt = true, ft = {"c", "cpp", "cmake", "makefile"}};
+	use {"lyuts/vim-rtags"};
 	use {"jremmen/vim-ripgrep"};
-
+	use {
+		"nvim-telescope/telescope.nvim",
+		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+	};
 
 	-- Themes
 	use {"tomasr/molokai", as = "molokai"};
