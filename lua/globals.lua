@@ -16,3 +16,19 @@ g.UltiSnipsJumpBackwardTrigger="<c-z>";
 g.OmniSharp_server_use_mono = true;
 
 g.ale_linters_explicit = true;
+
+g.ale_linters = {
+	java = {"javac"},
+};
+
+g.ale_fixers = {
+	["*"] = {"remove_trailing_lines", "trim_whitespace"},
+	haskell = {"hlint"},
+	c = {"clang-format"},
+	cpp = {"clang-format"},
+	html = {"prettier"},
+	css = {"prettier"},
+	javascript = {"prettier"},
+	elixir = {"mix_format"},
+};
+

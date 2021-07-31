@@ -28,5 +28,7 @@
 			"command": "rnix-lsp",
 			"filetypes": ["nix"]
 		}
-	}
+	},
+
+	"java.home": "/usr/lib/jvm/default"
 }
