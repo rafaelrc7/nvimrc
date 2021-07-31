@@ -39,6 +39,7 @@ return require("packer").startup(function(use)
 	use {"mattn/emmet-vim", opt = true, ft = {"html", "css", "js", "ts"}};
 
 	-- Misc
+	use {"puremourning/vimspector"};
 	use {"mbbill/undotree"};
 	use {"preservim/nerdtree", opt = true, cmd = {"NERDTreeToggle", "NERDTree"}};
 	use {"preservim/nerdcommenter"};
@@ -53,6 +54,9 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 	};
+	use {"nvim-telescope/telescope-fzf-native.nvim"};
+	use {"nvim-telescope/telescope-bibtex.nvim"};
+	use {"nvim-telescope/telescope-vimspector.nvim"};
 
 	-- Themes
 	use {"tomasr/molokai", as = "molokai"};
