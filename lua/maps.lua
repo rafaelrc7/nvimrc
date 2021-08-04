@@ -25,6 +25,7 @@ map("i", "<C-space>", "coc#refresh()", {noremap=true, expr=true});
 map("n", "<S-m>", ":MarkdownPreview<CR>", {silent=true, noremap=true});
 
 -- Fugitive
+map("n", "<leader>gs", ":G<CR>", {}); -- git status
 map("n", "<leader>gdt", ":diffget //2<CR>", {});
 map("n", "<leader>gdm", ":diffget //3<CR>", {});
 
