@@ -29,6 +29,10 @@ map("n", "<leader>gs", ":G<CR>", {}); -- git status
 map("n", "<leader>gdt", ":diffget //2<CR>", {});
 map("n", "<leader>gdm", ":diffget //3<CR>", {});
 
+-- Telescope
+map("n", "<leader>tg", [[:lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>]], {noremap=true});
+map("n", "<leader>tf", [[:lua require('telescope.builtin').find_files()<CR>]], {noremap=true});
+
 -- vimpeccable
 
 vimp.imap("<C-l>", "<Plug>(coc-snippets-expand)")
