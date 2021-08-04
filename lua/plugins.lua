@@ -12,7 +12,11 @@ return require("packer").startup(function(use)
 	use {"suxpert/vimcaps"};
 
 	-- Syntax and language specific stuff
-	use {"sheerun/vim-polyglot"};
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
+	-- use {"sheerun/vim-polyglot"};
 	use {"euclidianAce/BetterLua.vim", opt = true, ft = {"lua"}};
 	use {"bfredl/nvim-luadev", opt = true, ft = {"lua"}};
 	use {"OmniSharp/omnisharp-vim", opt = true, ft = {"cs"}};

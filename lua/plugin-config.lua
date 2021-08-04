@@ -1,4 +1,5 @@
 local g = vim.g;
+local o = vim.opt;
 
 g.airline_powerline_fonts = true;
 g.airline_section_b = "%{vimcaps#statusline(1)} %{airline#util#wrap(airline#extensions#branch#get_head(),80)}";
@@ -32,3 +33,15 @@ g.ale_fixers = {
 	elixir = {"mix_format"},
 };
 
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = "maintained",  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ignore_install = { }, -- List of parsers to ignore installing
+	highlight = {
+		enable = true,  -- false will disable the whole extension
+		disable = { },  -- list of language that will be disabled
+		additional_vim_regex_highlighting = false,
+	},
+}
+
+o.foldmethod = "expr";
+vim.cmd("set foldexpr=nvim_treesitter#foldexpr()");

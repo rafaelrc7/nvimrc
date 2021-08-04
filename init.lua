@@ -21,7 +21,7 @@ if packer then packer.compile() end;
 load_nvim_module("maps");
 
 -- Global variables, most related to plugins
-load_nvim_module("globals");
+load_nvim_module("plugin-config");
 
 -- Autocmds
 load_nvim_module("autocmds");
