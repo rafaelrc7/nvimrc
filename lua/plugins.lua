@@ -62,5 +62,10 @@ return require("packer").startup(function(use)
 	-- Themes
 	use {"gruvbox-community/gruvbox", as = "gruvbox"};
 
+	-- neorg
+	use {
+		"vhyrro/neorg",
+		requires = "nvim-lua/plenary.nvim"
+	}
 end);
 
