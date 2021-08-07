@@ -15,6 +15,6 @@ load_nvim_module("lsp");
 load_nvim_module("snippets");
 load_nvim_module("telescope");
 load_nvim_module("vimtex");
-load_nvim_module("neorg");
 load_nvim_module("treesitter");
+load_nvim_module("neorg");
 

@@ -65,7 +65,7 @@ return require("packer").startup(function(use)
 	-- neorg
 	use {
 		"vhyrro/neorg",
-		requires = "nvim-lua/plenary.nvim"
+		requires = "nvim-lua/plenary.nvim",
 	}
 end);
 
