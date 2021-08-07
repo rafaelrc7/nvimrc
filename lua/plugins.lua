@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
 	use {"bfredl/nvim-luadev", opt = true, ft = {"lua"}};
 	use {"OmniSharp/omnisharp-vim", opt = true, ft = {"cs"}};
 	use {"lervag/vimtex", opt = true, ft = {"tex"}};
-	use {"slashmili/alchemist.vim", opt = true, ft = {"elixir", "eelixir"}};
+	--use {"slashmili/alchemist.vim", opt = true, ft = {"elixir", "eelixir"}};
 	use {
 		"iamcco/markdown-preview.nvim",
 		opt = true,
@@ -31,11 +31,10 @@ return require("packer").startup(function(use)
 
 	-- LSP and linting
 	use {"w0rp/ale"};
-	use {
-		"neoclide/coc.nvim",
-		branch = 'master',
-		run = 'yarn install --frozen-lockfile',
-	};
+	use {"neovim/nvim-lspconfig"};
+	use {"hrsh7th/nvim-compe"};
+	use {"simrat39/symbols-outline.nvim"};
+	use {"mfussenegger/nvim-jdtls"};
 
 	-- Snippets
 	use {"SirVer/ultisnips"};
@@ -61,7 +60,7 @@ return require("packer").startup(function(use)
 	use {"nvim-telescope/telescope-fzy-native.nvim"};
 
 	-- Themes
-	use {"tomasr/molokai", as = "molokai"};
+	use {"gruvbox-community/gruvbox", as = "gruvbox"};
 
 end);
 

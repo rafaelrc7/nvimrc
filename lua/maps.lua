@@ -20,7 +20,6 @@ map("", "<leader>l", ":wincmd l<CR>", {silent=true, noremap=true});
 -- Autocomplete
 map("i", "<TAB>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], {noremap=true, expr=true});
 map("i", "<s-TAB>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], {noremap=true, expr=true});
-map("i", "<C-space>", "coc#refresh()", {noremap=true, expr=true});
 
 map("n", "<S-m>", ":MarkdownPreview<CR>", {silent=true, noremap=true});
 
@@ -33,9 +32,11 @@ map("n", "<leader>gdm", ":diffget //3<CR>", {});
 map("n", "<leader>tg", [[:lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>]], {noremap=true});
 map("n", "<leader>tf", [[:lua require('telescope.builtin').find_files()<CR>]], {noremap=true});
 
--- vimpeccable
-
-vimp.imap("<C-l>", "<Plug>(coc-snippets-expand)")
-vimp.imap("<C-j>", "<Plug>(coc-snippets-expand-jump)")
-vimp.imap({"silent"}, "gd", "<Plug>(coc-definition)");
+-- Compe
+vimp.inoremap({"silent", "expr"}, "<C-space>", "compe#complete()");
+vim.cmd([[inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })]])
+vim.cmd([[inoremap <silent><expr> <C-j>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })]])
+vimp.inoremap({"silent", "expr"}, "<C-e>", "compe#close('<C-e>')");
+vimp.inoremap({"silent", "expr"}, "<C-f>", "compe#scroll({ 'delta': +4 })");
+vimp.inoremap({"silent", "expr"}, "<C-d>", "compe#scroll({ 'delta': -4 })");
 
