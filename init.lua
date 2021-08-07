@@ -20,8 +20,8 @@ if packer then packer.compile() end;
 -- Maps and other keybinds
 load_nvim_module("maps");
 
--- Global variables, most related to plugins
-load_nvim_module("plugin-config");
+-- Load plugin configs
+load_nvim_module("plugin");
 
 -- Autocmds
 load_nvim_module("autocmds");
