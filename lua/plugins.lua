@@ -32,7 +32,7 @@ return require("packer").startup(function(use)
 	use {"neovim/nvim-lspconfig"};
 	use {"hrsh7th/nvim-compe"};
 	use {"simrat39/symbols-outline.nvim"};
-	use {"mfussenegger/nvim-jdtls", opt = true, ft = {"java"}};
+	-- use {"mfussenegger/nvim-jdtls", opt = true, ft = {"java"}};
 
 	-- Snippets
 	use {"SirVer/ultisnips"};

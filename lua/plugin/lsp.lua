@@ -22,9 +22,6 @@ end
 
 vim.g.completion_matching_strategy_list = {"exact", "substring", "fuzzy"};
 
--- TS
-nvim_lsp.tsserver.setup{ on_attach=on_attach };
-
 -- CLANGD
 nvim_lsp.clangd.setup {
 	on_attach = on_attach,
@@ -50,8 +47,21 @@ nvim_lsp.html.setup {
 	capabilities = capabilities,
 };
 
+-- CSS
+nvim_lsp.cssls.setup {
+	capabilities = capabilities,
+}
+
+-- TS
+nvim_lsp.tsserver.setup{ on_attach=on_attach };
+
 -- Java (jdtls)
-nvim_lsp.jdtls.setup{};
+nvim_lsp.jdtls.setup{
+	cmd = { "jdtls" },
+	root_dir = function(fname)
+		return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
+	end,
+};
 
 -- Json
 nvim_lsp.jsonls.setup {
@@ -122,6 +132,9 @@ nvim_lsp.texlab.setup{};
 
 -- Vim
 nvim_lsp.vimls.setup{};
+
+-- Nix (rnix-lsp)
+nvim_lsp.rnix.setup{};
 
 require'compe'.setup {
 	enabled = true;
