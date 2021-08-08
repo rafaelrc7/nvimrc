@@ -16,12 +16,10 @@ return require("packer").startup(function(use)
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
-	-- use {"sheerun/vim-polyglot"};
 	use {"euclidianAce/BetterLua.vim", opt = true, ft = {"lua"}};
 	use {"bfredl/nvim-luadev", opt = true, ft = {"lua"}};
 	use {"OmniSharp/omnisharp-vim", opt = true, ft = {"cs"}};
 	use {"lervag/vimtex", opt = true, ft = {"tex"}};
-	--use {"slashmili/alchemist.vim", opt = true, ft = {"elixir", "eelixir"}};
 	use {
 		"iamcco/markdown-preview.nvim",
 		opt = true,
@@ -34,7 +32,7 @@ return require("packer").startup(function(use)
 	use {"neovim/nvim-lspconfig"};
 	use {"hrsh7th/nvim-compe"};
 	use {"simrat39/symbols-outline.nvim"};
-	use {"mfussenegger/nvim-jdtls"};
+	use {"mfussenegger/nvim-jdtls", opt = true, ft = {"java"}};
 
 	-- Snippets
 	use {"SirVer/ultisnips"};
