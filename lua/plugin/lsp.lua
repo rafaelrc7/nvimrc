@@ -56,12 +56,15 @@ nvim_lsp.cssls.setup {
 nvim_lsp.tsserver.setup{ on_attach=on_attach };
 
 -- Java (jdtls)
-nvim_lsp.jdtls.setup{
-	cmd = { "jdtls" },
-	root_dir = function(fname)
-		return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
-	end,
-};
+vim.cmd(
+[[
+if has('nvim-0.5')
+  augroup lsp
+    au!
+    au FileType java lua require('jdtls').start_or_attach({cmd = {'jdtls.sh'}})
+  augroup end
+endif
+]]);
 
 -- Json
 nvim_lsp.jsonls.setup {
