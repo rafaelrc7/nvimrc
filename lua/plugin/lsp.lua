@@ -1,16 +1,4 @@
 vim.g.OmniSharp_server_use_mono = true;
-vim.g.ale_linters_explicit = true;
-
-vim.g.ale_fixers = {
-	["*"] = {"remove_trailing_lines", "trim_whitespace"},
-	haskell = {"hlint"},
-	c = {"clang-format"},
-	cpp = {"clang-format"},
-	html = {"prettier"},
-	css = {"prettier"},
-	javascript = {"prettier"},
-	elixir = {"mix_format"},
-};
 
 -- nvim-lsp
 local nvim_lsp = require("lspconfig");

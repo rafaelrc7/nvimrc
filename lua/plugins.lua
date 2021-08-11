@@ -13,7 +13,7 @@ return require("packer").startup(function(use)
 
 	-- Syntax and language specific stuff
 	use {
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 		run = ':TSUpdate'
 	}
 	use {"euclidianAce/BetterLua.vim", opt = true, ft = {"lua"}};
@@ -28,11 +28,14 @@ return require("packer").startup(function(use)
 	};
 
 	-- LSP and linting
-	use {"w0rp/ale"};
 	use {"neovim/nvim-lspconfig"};
 	use {"hrsh7th/nvim-compe"};
 	use {"simrat39/symbols-outline.nvim"};
 	use {"mfussenegger/nvim-jdtls"};
+	use {
+		"sbdchd/neoformat",
+		cmd = "Neoformat",
+	};
 
 	-- Snippets
 	use {"SirVer/ultisnips"};
@@ -45,7 +48,6 @@ return require("packer").startup(function(use)
 	use {"preservim/nerdtree", opt = true, cmd = {"NERDTreeToggle", "NERDTree"}};
 	use {"preservim/nerdcommenter"};
 	use {"Raimondi/delimitMate"};
-	use {"tpope/vim-fugitive"};
 	use {"tpope/vim-dispatch", opt = true, cmd = {"Dispatch", "Make", "Focus", "Start"}};
 	use {"vim-utils/vim-man"};
 	use {"preservim/tagbar"};
@@ -53,9 +55,21 @@ return require("packer").startup(function(use)
 	use {"jremmen/vim-ripgrep"};
 	use {
 		"nvim-telescope/telescope.nvim",
-		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
 	};
 	use {"nvim-telescope/telescope-fzy-native.nvim"};
+
+	-- git
+	use {"tpope/vim-fugitive"};
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		},
+		config = function()
+			require('gitsigns').setup()
+		end
+	};
 
 	-- Themes
 	use {"gruvbox-community/gruvbox", as = "gruvbox"};
@@ -64,6 +78,6 @@ return require("packer").startup(function(use)
 	use {
 		"vhyrro/neorg",
 		requires = "nvim-lua/plenary.nvim",
-	}
+	};
 end);
 
