@@ -1,3 +1,5 @@
+local utils = require("utils");
+
 vim.g.OmniSharp_server_use_mono = true;
 
 -- nvim-lsp
@@ -22,21 +24,26 @@ nvim_lsp.rust_analyzer.setup{ on_attach=on_attach };
 
 -- Elixir
 nvim_lsp.elixirls.setup{
+	on_attach = on_attach,
 	cmd = { "/usr/lib/elixir-ls/language_server.sh" };
 };
 
 -- Haskell (hls)
-nvim_lsp.hls.setup{};
+nvim_lsp.hls.setup{
+	on_attach = on_attach,
+};
 
 -- html
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 nvim_lsp.html.setup {
+	on_attach = on_attach,
 	capabilities = capabilities,
 };
 
 -- CSS
 nvim_lsp.cssls.setup {
+	on_attach = on_attach,
 	capabilities = capabilities,
 }
 
@@ -56,6 +63,7 @@ endif
 
 -- Json
 nvim_lsp.jsonls.setup {
+	on_attach = on_attach,
 	commands = {
 		Format = {
 			function()
@@ -68,12 +76,14 @@ nvim_lsp.jsonls.setup {
 -- C# (Omnisharp)
 local omnisharp_bin = "/home/rafael/.bin/omnisharp/run"
 nvim_lsp.omnisharp.setup{
+	on_attach = on_attach,
 	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
 	root_dir = nvim_lsp.util.root_pattern("*.csproj","*.sln"),
 };
 
 -- Python (pyright)
 nvim_lsp.pyright.setup{
+	on_attach = on_attach,
 	settings = {
 		python = {
 			analysis = {
@@ -90,6 +100,7 @@ local sumneko_bin = sumneko_root .. "/bin/Linux/lua-language-server"
 local runtime_path = vim.split(package.path, ';')
 
 nvim_lsp.sumneko_lua.setup {
+	on_attach = on_attach,
 	cmd = {sumneko_bin, "-E", sumneko_root .. "/main.lua"};
 	settings = {
 		Lua = {
@@ -119,13 +130,19 @@ nvim_lsp.sumneko_lua.setup {
 };
 
 -- LaTeX (texlab)
-nvim_lsp.texlab.setup{};
+nvim_lsp.texlab.setup{
+	on_attach = on_attach,
+};
 
 -- Vim
-nvim_lsp.vimls.setup{};
+nvim_lsp.vimls.setup{
+	on_attach = on_attach,
+};
 
 -- Nix (rnix-lsp)
-nvim_lsp.rnix.setup{};
+nvim_lsp.rnix.setup{
+	on_attach = on_attach,
+};
 
 require'compe'.setup {
 	enabled = true;
@@ -162,3 +179,10 @@ require'compe'.setup {
 	};
 }
 
+utils.nvim_create_augroups(
+	{
+		lspconfig = {
+			{"CursorHold", "*", "lua vim.lsp.diagnostic.show_line_diagnostics()"},
+		},
+	}
+);

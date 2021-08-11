@@ -17,7 +17,6 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	}
 	use {"bfredl/nvim-luadev", ft = {"lua"}};
-	--use {"OmniSharp/omnisharp-vim", ft = {"cs"}};
 	use {"lervag/vimtex", ft = {"tex"}};
 	use {
 		"iamcco/markdown-preview.nvim",

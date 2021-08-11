@@ -34,6 +34,7 @@ opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo";
 opt.colorcolumn = {"80", "120"};
 opt.completeopt = "menuone,noselect";
 opt.termguicolors = true;
+opt.updatetime = 1000;
 
 vim.g.gruvbox_contrast_dark = "hard";
 cmd ("colorscheme gruvbox");
