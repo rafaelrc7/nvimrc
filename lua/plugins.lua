@@ -14,11 +14,10 @@ return require("packer").startup(function(use)
 	-- Syntax and language specific stuff
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		run = ':TSUpdate'
+		run = ":TSUpdate",
 	}
-	use {"euclidianAce/BetterLua.vim", ft = {"lua"}};
 	use {"bfredl/nvim-luadev", ft = {"lua"}};
-	use {"OmniSharp/omnisharp-vim", ft = {"cs"}};
+	--use {"OmniSharp/omnisharp-vim", ft = {"cs"}};
 	use {"lervag/vimtex", ft = {"tex"}};
 	use {
 		"iamcco/markdown-preview.nvim",
@@ -61,7 +60,6 @@ return require("packer").startup(function(use)
 	use {"vim-utils/vim-man"};
 	use {"preservim/tagbar"};
 	use {"lyuts/vim-rtags"};
-	use {"jremmen/vim-ripgrep"};
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
