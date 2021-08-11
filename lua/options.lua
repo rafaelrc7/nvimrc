@@ -33,6 +33,7 @@ opt.foldlevelstart = 99; -- By default all folds are open
 opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo";
 opt.colorcolumn = {"80", "120"};
 opt.completeopt = "menuone,noselect";
+opt.termguicolors = true;
 
 vim.g.gruvbox_contrast_dark = "hard";
 cmd ("colorscheme gruvbox");

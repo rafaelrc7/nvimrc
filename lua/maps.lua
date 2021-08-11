@@ -15,7 +15,7 @@ map("t", "<C-e>", "<C-\\><C-n>", {});
 map("", "<C-s>", ":write<CR>", {silent=true});
 
 -- Toggles file tree
-map("", "<C-b>", ":NERDTreeToggle<CR>", {silent=true});
+map("", "<C-n>", ":NvimTreeToggle<CR>", {silent=true});
 
 -- Toggle comment
 map("", "<leader>/", "<leader>c<space>", {silent=true});

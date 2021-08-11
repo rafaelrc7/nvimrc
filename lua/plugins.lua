@@ -16,10 +16,10 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ':TSUpdate'
 	}
-	use {"euclidianAce/BetterLua.vim", opt = true, ft = {"lua"}};
-	use {"bfredl/nvim-luadev", opt = true, ft = {"lua"}};
-	use {"OmniSharp/omnisharp-vim", opt = true, ft = {"cs"}};
-	use {"lervag/vimtex", opt = true, ft = {"tex"}};
+	use {"euclidianAce/BetterLua.vim", ft = {"lua"}};
+	use {"bfredl/nvim-luadev", ft = {"lua"}};
+	use {"OmniSharp/omnisharp-vim", ft = {"cs"}};
+	use {"lervag/vimtex", ft = {"tex"}};
 	use {
 		"iamcco/markdown-preview.nvim",
 		opt = true,
@@ -40,15 +40,24 @@ return require("packer").startup(function(use)
 	-- Snippets
 	use {"SirVer/ultisnips"};
 	use {"honza/vim-snippets"};
-	use {"mattn/emmet-vim", opt = true, ft = {"html", "css", "js", "ts"}};
+	use {"mattn/emmet-vim", ft = {"html", "css", "js", "ts"}};
+
+	-- File tree
+	use {
+		"kyazdani42/nvim-tree.lua",
+		opt = true,
+		cmd = {"NvimTreeToggle"},
+	};
+	use {
+		"kyazdani42/nvim-web-devicons",
+	};
 
 	-- Misc
 	use {"puremourning/vimspector"};
 	use {"mbbill/undotree"};
-	use {"preservim/nerdtree", opt = true, cmd = {"NERDTreeToggle", "NERDTree"}};
 	use {"preservim/nerdcommenter"};
 	use {"Raimondi/delimitMate"};
-	use {"tpope/vim-dispatch", opt = true, cmd = {"Dispatch", "Make", "Focus", "Start"}};
+	use {"tpope/vim-dispatch", cmd = {"Dispatch", "Make", "Focus", "Start"}};
 	use {"vim-utils/vim-man"};
 	use {"preservim/tagbar"};
 	use {"lyuts/vim-rtags"};
