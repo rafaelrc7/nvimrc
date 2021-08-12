@@ -1,7 +1,5 @@
 local utils = require("utils");
 
-vim.g.OmniSharp_server_use_mono = true;
-
 -- nvim-lsp
 local nvim_lsp = require("lspconfig");
 local pid = vim.fn.getpid()
