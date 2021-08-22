@@ -85,5 +85,15 @@ return require("packer").startup(function(use)
 		"vhyrro/neorg",
 		requires = "nvim-lua/plenary.nvim",
 	};
+
+	-- Discord presence
+	use {
+		"andweeb/presence.nvim",
+		config = function()
+			require("presence"):setup({
+				main_image = "file",
+			})
+		end
+	};
 end);
 
