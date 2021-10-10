@@ -147,9 +147,9 @@ require'compe'.setup {
 	autocomplete = true;
 	debug = false;
 	min_length = 1;
-	preselect = 'enable';
+	preselect = 'disable';
 	throttle_time = 80;
-	source_timeout = 200;
+	source_timeout = 500;
 	resolve_timeout = 800;
 	incomplete_delay = 400;
 	max_abbr_width = 100;

@@ -34,8 +34,8 @@ map("", "<leader>l", ":wincmd l<CR>", {silent=true, noremap=true});
 
 -- Fugitive
 map("n", "<leader>gs", ":G<CR>", {}); -- git status
-map("n", "<leader>gdt", ":diffget //2<CR>", {});
-map("n", "<leader>gdm", ":diffget //3<CR>", {});
+map("n", "<leader>gdf", ":diffget //2<CR>", {});
+map("n", "<leader>gdj", ":diffget //3<CR>", {});
 
 -- Telescope
 map("n", "<leader>fw", ":Telescope live_grep<CR>", {});
