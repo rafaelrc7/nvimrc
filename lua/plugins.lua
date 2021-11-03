@@ -114,11 +114,7 @@ return require("packer").startup(function(use)
 	-- Discord presence
 	use {
 		"andweeb/presence.nvim",
-		config = function()
-			require("presence"):setup({
-				main_image = "file",
-			})
-		end
+		config = function() require "plugin.presence" end,
 	};
 end);
 
