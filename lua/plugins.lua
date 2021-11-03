@@ -58,11 +58,14 @@ return require("packer").startup(function(use)
 	use {
 		"kyazdani42/nvim-tree.lua",
 		config = function ()
+			require "plugin.nvim-tree";
 			require "nvim-tree".setup {
 				auto_close = true,
-				open_on_tab = true
+				open_on_tab = true,
+				filters = {
+					custom = {".git", "node_modules", ".cache"},
+				},
 			};
-			require "plugin.nvim-tree";
 		end,
 	};
 	use {
