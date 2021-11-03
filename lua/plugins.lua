@@ -43,8 +43,12 @@ return require("packer").startup(function(use)
 	-- File tree
 	use {
 		"kyazdani42/nvim-tree.lua",
-		opt = true,
-		cmd = {"NvimTreeToggle"},
+		config = function ()
+			require'nvim-tree'.setup {
+				auto_close = true,
+				open_on_tab = true
+			};
+		end,
 	};
 	use {
 		"kyazdani42/nvim-web-devicons",
