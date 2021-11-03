@@ -13,7 +13,7 @@ vim.g.completion_matching_strategy_list = {"exact", "substring", "fuzzy"};
 -- CLANGD
 nvim_lsp.clangd.setup {
 	on_attach = on_attach,
-	filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp" },
+	filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda" },
 	root_dir = function() return vim.loop.cwd() end
 };
 
