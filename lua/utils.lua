@@ -17,4 +17,15 @@ function M.nvim_create_augroups(definitions)
 	end
 end
 
+function M.load_nvim_module(module)
+	local ok, ret = pcall(require, module);
+
+	if not ok then
+		print(string.format("ERROR: Failed to load the %s module.  %s\n", module, ret));
+		return nil;
+	else
+		return ret;
+	end
+end
+
 return M;
