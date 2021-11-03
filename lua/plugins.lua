@@ -7,7 +7,10 @@ return require("packer").startup(function(use)
 	use {"nvim-lua/popup.nvim"};
 	use {"nvim-lua/plenary.nvim"};
 
-	use {"vim-airline/vim-airline"};
+	use {
+		"vim-airline/vim-airline",
+		config = function() require "plugin.airline" end,
+	};
 	use {"edkolev/tmuxline.vim", opt = true};
 	use {"suxpert/vimcaps"};
 
@@ -15,9 +18,14 @@ return require("packer").startup(function(use)
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		config = function() require "plugin.treesitter" end,
 	}
 	use {"bfredl/nvim-luadev", ft = {"lua"}};
-	use {"lervag/vimtex", ft = {"tex"}};
+	use {
+		"lervag/vimtex",
+		ft = {"tex"},
+		config = function() require "plugin.vimtex" end,
+	};
 	use {
 		"iamcco/markdown-preview.nvim",
 		opt = true,
@@ -26,7 +34,10 @@ return require("packer").startup(function(use)
 	};
 
 	-- LSP and linting
-	use {"neovim/nvim-lspconfig"};
+	use {
+		"neovim/nvim-lspconfig",
+		config = function() require "plugin.lsp" end,
+	};
 	use {"hrsh7th/nvim-compe"};
 	use {"simrat39/symbols-outline.nvim"};
 	use {"mfussenegger/nvim-jdtls"};
@@ -36,7 +47,10 @@ return require("packer").startup(function(use)
 	};
 
 	-- Snippets
-	use {"SirVer/ultisnips"};
+	use {
+		"SirVer/ultisnips",
+		config = function() require "plugin.snippets" end,
+	};
 	use {"honza/vim-snippets"};
 	use {"mattn/emmet-vim", ft = {"html", "css", "js", "ts"}};
 
@@ -44,10 +58,11 @@ return require("packer").startup(function(use)
 	use {
 		"kyazdani42/nvim-tree.lua",
 		config = function ()
-			require'nvim-tree'.setup {
+			require "nvim-tree".setup {
 				auto_close = true,
 				open_on_tab = true
 			};
+			require "plugin.nvim-tree";
 		end,
 	};
 	use {
@@ -66,6 +81,7 @@ return require("packer").startup(function(use)
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+		config = function() require "plugin.telescope" end
 	};
 	use {"nvim-telescope/telescope-fzy-native.nvim"};
 
@@ -88,6 +104,7 @@ return require("packer").startup(function(use)
 	use {
 		"vhyrro/neorg",
 		requires = "nvim-lua/plenary.nvim",
+		config = function() require "neorg" end,
 	};
 
 	-- Discord presence
