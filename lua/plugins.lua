@@ -105,9 +105,10 @@ return require("packer").startup(function(use)
 
 	-- neorg
 	use {
-		"vhyrro/neorg",
+		"nvim-neorg/neorg",
 		requires = "nvim-lua/plenary.nvim",
-		config = function() require "neorg" end,
+		config = function() require "plugin.neorg" end,
+		after = "nvim-treesitter",
 	};
 
 	-- Discord presence
