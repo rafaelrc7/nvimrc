@@ -60,6 +60,8 @@ return require("packer").startup(function(use)
 		config = function ()
 			require "plugin.nvim-tree";
 			require "nvim-tree".setup {
+				disable_netrw = false,
+				hijack_netrw = false;
 				auto_close = true,
 				open_on_tab = true,
 				filters = {
