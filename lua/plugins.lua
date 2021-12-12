@@ -12,7 +12,6 @@ return require("packer").startup(function(use)
 		config = function() require "plugin.airline" end,
 	};
 	use {"edkolev/tmuxline.vim", opt = true};
-	use {"suxpert/vimcaps"};
 
 	-- Syntax and language specific stuff
 	use {
