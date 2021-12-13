@@ -92,14 +92,12 @@ nvim_lsp.pyright.setup{
 };
 
 -- Lua (sumneko)
-local sumneko_root = "/home/rafael/Dev/src/lua-language-server"
-local sumneko_bin = sumneko_root .. "/bin/Linux/lua-language-server"
-
 local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
 
 nvim_lsp.sumneko_lua.setup {
 	on_attach = on_attach,
-	cmd = {sumneko_bin, "-E", sumneko_root .. "/main.lua"};
 	settings = {
 		Lua = {
 			runtime = {
