@@ -74,6 +74,7 @@ return require("packer").startup(function(use)
 	};
 
 	-- Misc
+	use {"gpanders/editorconfig.nvim"};
 	use {"puremourning/vimspector"};
 	use {"mbbill/undotree"};
 	use {"preservim/nerdcommenter"};
