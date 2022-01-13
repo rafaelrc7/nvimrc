@@ -178,7 +178,7 @@ require'compe'.setup {
 utils.nvim_create_augroups(
 	{
 		lspconfig = {
-			{"CursorHold", "*", "lua vim.lsp.diagnostic.show_line_diagnostics()"},
+			{"CursorHold", "*", "lua vim.diagnostic.open_float()"},
 		},
 	}
 );
