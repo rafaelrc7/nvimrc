@@ -35,6 +35,7 @@ opt.colorcolumn = {"80", "120"};
 opt.completeopt = "menuone,noselect";
 opt.termguicolors = true;
 opt.updatetime = 1000;
+opt.syntax = "enable";
 
 vim.g.gruvbox_contrast_dark = "hard";
 cmd ("colorscheme gruvbox");
