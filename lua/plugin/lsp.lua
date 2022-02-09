@@ -4,6 +4,7 @@ local utils = require("utils");
 local nvim_lsp = require("lspconfig");
 local pid = vim.fn.getpid()
 local capabilities = vim.lsp.protocol.make_client_capabilities();
+local home_dir = os.getenv("HOME")
 
 local function on_attach()
 end
@@ -72,7 +73,7 @@ nvim_lsp.jsonls.setup {
 };
 
 -- C# (Omnisharp)
-local omnisharp_bin = "/home/rafael/.bin/omnisharp/run"
+local omnisharp_bin = home_dir .. "/.local/bin/omnisharp-linux-x64/run"
 nvim_lsp.omnisharp.setup{
 	on_attach = on_attach,
 	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
