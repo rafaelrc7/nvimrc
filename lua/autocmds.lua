@@ -12,6 +12,10 @@ local autocmds = {
 	nix_indent = {
 		{"FileType", "nix", [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]]}
 	},
+
+	elixir_indent = {
+		{"FileType", "elixir", [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]]}
+	},
 }
 
 utils.nvim_create_augroups(autocmds);
