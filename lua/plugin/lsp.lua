@@ -36,6 +36,7 @@ nvim_lsp.hls.setup{
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 nvim_lsp.html.setup {
+	cmd = {"vscode-html-languageserver", "--stdio"},
 	on_attach = on_attach,
 	capabilities = capabilities,
 };
@@ -62,6 +63,7 @@ endif
 
 -- Json
 nvim_lsp.jsonls.setup {
+	cmd = {"vscode-json-languageserver", "--stdio"},
 	on_attach = on_attach,
 	commands = {
 		Format = {
