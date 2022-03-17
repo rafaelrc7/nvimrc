@@ -6,7 +6,7 @@ local autocmds = {
 	},
 
 	haskell_indent = {
-		{"FileType", "haskell", [[:setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab]]}
+		{"FileType", "haskell,cabal", [[:setlocal shiftwidth=2 softtabstop=2 tabstop=8 expandtab]]}
 	},
 
 	nix_indent = {
