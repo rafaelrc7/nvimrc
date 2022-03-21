@@ -56,18 +56,7 @@ return require("packer").startup(function(use)
 	-- File tree
 	use {
 		"kyazdani42/nvim-tree.lua",
-		config = function ()
-			require "plugin.nvim-tree";
-			require "nvim-tree".setup {
-				disable_netrw = true,
-				hijack_netrw = true;
-				auto_close = true,
-				open_on_tab = true,
-				filters = {
-					custom = {".git", "node_modules", ".cache"},
-				},
-			};
-		end,
+		config = function () require "plugin.nvim-tree" end,
 	};
 	use {
 		"kyazdani42/nvim-web-devicons",
