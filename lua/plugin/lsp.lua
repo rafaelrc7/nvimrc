@@ -50,17 +50,6 @@ nvim_lsp.cssls.setup {
 -- TS
 nvim_lsp.tsserver.setup{ on_attach=on_attach };
 
--- Java (jdtls)
-vim.cmd(
-[[
-if has('nvim-0.5')
-  augroup lsp
-    au!
-    au FileType java lua require('jdtls').start_or_attach({cmd = {'jdtls.sh'}})
-  augroup end
-endif
-]]);
-
 -- Json
 nvim_lsp.jsonls.setup {
 	cmd = {"vscode-json-languageserver", "--stdio"},
@@ -182,6 +171,10 @@ utils.nvim_create_augroups(
 	{
 		lspconfig = {
 			{"CursorHold", "*", "lua vim.diagnostic.open_float()"},
+
+			-- Java (jdtls)
+			{"FileType", "java", "lua require('jdtls').start_or_attach({cmd = {'jdtls.sh'}})"}
 		},
 	}
 );
+
