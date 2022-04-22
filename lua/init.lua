@@ -1,3 +1,5 @@
+-- This file is used by configs that don't use packer
+
 local load_nvim_module = require"utils".load_nvim_module;
 
 -- General settings
