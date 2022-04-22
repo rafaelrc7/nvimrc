@@ -10,5 +10,5 @@ load_nvim_module("maps");
 load_nvim_module("autocmds");
 
 -- Plugin settings
-load_nvim_module("lua.plugin")
+load_nvim_module("plugin")
 
