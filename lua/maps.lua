@@ -66,10 +66,6 @@ _G.s_tab_complete = function ()
 	end
 end
 
-_G.cr_complete = function ()
-	return vim.fn["compe#confirm"]( {keys = t "<Plug>" .. "delimitMateCR", mode = ""});
-end
-
 map("i", "<Tab>", "v:lua.tab_complete()", {noremap=true, expr=true});
 map("s", "<Tab>", "v:lua.tab_complete()", {noremap=true, expr=true});
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap=true, expr=true});
@@ -77,9 +73,4 @@ map("s", "<S-Tab>", "v:lua.s_tab_complete()", {noremap=true, expr=true});
 
 map("i", "<CR>", "v:lua.cr_complete()", {noremap=true, expr=true});
 map("i", "<C-j>", "v:lua.cr_complete()", {noremap=true, expr=true});
-
-vimp.inoremap({"silent", "expr"}, "<C-space>", "compe#complete()");
-vimp.inoremap({"silent", "expr"}, "<C-e>", "compe#close('<C-e>')");
-vimp.inoremap({"silent", "expr"}, "<C-f>", "compe#scroll({ 'delta': +4 })");
-vimp.inoremap({"silent", "expr"}, "<C-d>", "compe#scroll({ 'delta': -4 })");
 

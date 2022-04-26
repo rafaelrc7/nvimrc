@@ -37,7 +37,6 @@ return require("packer").startup(function(use)
 		"neovim/nvim-lspconfig",
 		config = function() require "plugin.lsp" end,
 	};
-	use {"hrsh7th/nvim-compe"};
 	use {"simrat39/symbols-outline.nvim"};
 	use {"mfussenegger/nvim-jdtls"};
 	use {

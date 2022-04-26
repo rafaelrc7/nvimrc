@@ -5,7 +5,6 @@ require('neorg').setup {
 		["core.norg.concealer"] = {}, -- Allows for use of icons
 		["core.norg.completion"] = {
 			config  = {
-				engine = "nvim-compe"
 			}
 		},
 		["core.norg.dirman"] = { -- Manage your directories with Neorg
