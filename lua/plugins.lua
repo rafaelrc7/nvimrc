@@ -46,10 +46,10 @@ return require("packer").startup(function(use)
 
 	-- Snippets
 	use {
-		"SirVer/ultisnips",
+		"L3MON4D3/LuaSnip",
 		config = function() require "plugin.snippets" end,
 	};
-	use {"hrsh7th/cmp-nvim-ultisnips"};
+	use {"saadparwaiz1/cmp_luasnip"};
 
 	use {"mattn/emmet-vim", ft = {"html", "css", "js", "ts"}};
 	--
