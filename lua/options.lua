@@ -32,7 +32,7 @@ opt.foldmethod = "syntax";
 opt.foldlevelstart = 99; -- By default all folds are open
 opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo";
 opt.colorcolumn = {"80", "120"};
-opt.completeopt = "menuone,noselect";
+opt.completeopt = "menu,menuone,noselect";
 opt.termguicolors = true;
 opt.updatetime = 1000;
 
