@@ -9,8 +9,6 @@ local home_dir = os.getenv("HOME")
 local function on_attach()
 end
 
-vim.g.completion_matching_strategy_list = {"exact", "substring", "fuzzy"};
-
 -- CLANGD
 nvim_lsp.clangd.setup {
 	on_attach = on_attach,
@@ -150,9 +148,7 @@ nvim_lsp.rnix.setup{
 
 utils.nvim_create_augroups(
 	{
-		lspconfig = {
-			{"CursorHold", "*", "lua vim.diagnostic.open_float()"},
-
+		lsp_jdtls = {
 			-- Java (jdtls)
 			{"FileType", "java", "lua require('jdtls').start_or_attach({cmd = {'jdtls.sh'}})"}
 		},

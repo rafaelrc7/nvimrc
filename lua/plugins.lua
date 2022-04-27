@@ -34,7 +34,10 @@ return require("packer").startup(function(use)
 	-- LSP and linting
 	use {
 		"neovim/nvim-lspconfig",
-		config = function() require "plugin.lsp" end,
+		config = function()
+			require "plugin.lspconfig"
+			require "plugin.lsp"
+		end,
 	};
 	use {"simrat39/symbols-outline.nvim"};
 	use {"mfussenegger/nvim-jdtls"};

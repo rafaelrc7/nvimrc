@@ -3,7 +3,7 @@
 local load_nvim_module = require"utils".load_nvim_module;
 
 local module_name = "plugin"
-local plugins = { "airline", "cmp", "lsp", "neorg", "nvim-tree", "presence",
+local plugins = { "airline", "cmp", "lspconfig", "neorg", "nvim-tree", "presence",
 	"snippets", "telescope", "treesitter", "vimtex" }
 
 local module_path = module_name .. "."
