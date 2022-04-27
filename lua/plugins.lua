@@ -3,7 +3,6 @@ return require("packer").startup(function(use)
 	use {"wbthomason/packer.nvim"};
 
 	-- Lua apis
-	use {"svermeulen/vimpeccable"};
 	use {"nvim-lua/popup.nvim"};
 	use {"nvim-lua/plenary.nvim"};
 

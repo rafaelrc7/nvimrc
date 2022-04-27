@@ -1,4 +1,3 @@
-local vimp = require('vimp');
 local map = vim.api.nvim_set_keymap;
 
 -- Map leader key to <space>
@@ -44,33 +43,4 @@ map("n", "<leader>fb", ":Telescope buffers<CR>", {});
 map("n", "<leader>ft", ":Telescope help_tags<CR>", {});
 map("n", "<leader>fgs", ":Telescope git_status<CR>", {});
 map("n", "<leader>fgc", ":Telescope git_commits<CR>", {});
-
--- Compe
-local function t(str)
-	return vim.api.nvim_replace_termcodes(str, true, true, true);
-end
-
-_G.tab_complete = function ()
-	if vim.fn.pumvisible() == 1 then
-		return t "<C-n>";
-	else
-		return t "<Tab>";
-	end
-end
-
-_G.s_tab_complete = function ()
-	if vim.fn.pumvisible() == 1 then
-		return t "<C-p>";
-	else
-		return t "<S-Tab>";
-	end
-end
-
-map("i", "<Tab>", "v:lua.tab_complete()", {noremap=true, expr=true});
-map("s", "<Tab>", "v:lua.tab_complete()", {noremap=true, expr=true});
-map("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap=true, expr=true});
-map("s", "<S-Tab>", "v:lua.s_tab_complete()", {noremap=true, expr=true});
-
-map("i", "<CR>", "v:lua.cr_complete()", {noremap=true, expr=true});
-map("i", "<C-j>", "v:lua.cr_complete()", {noremap=true, expr=true});
 
