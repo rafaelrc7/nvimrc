@@ -3,7 +3,7 @@ local utils = require("utils");
 -- nvim-lsp
 local nvim_lsp = require("lspconfig");
 local pid = vim.fn.getpid()
-local capabilities = vim.lsp.protocol.make_client_capabilities();
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local home_dir = os.getenv("HOME")
 
 local function on_attach()
@@ -15,21 +15,27 @@ vim.g.completion_matching_strategy_list = {"exact", "substring", "fuzzy"};
 nvim_lsp.clangd.setup {
 	on_attach = on_attach,
 	filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda" },
-	root_dir = function() return vim.loop.cwd() end
+	root_dir = function() return vim.loop.cwd() end,
+	capabilities = capabilities,
 };
 
 -- Rust
-nvim_lsp.rust_analyzer.setup{ on_attach=on_attach };
+nvim_lsp.rust_analyzer.setup{
+	on_attach=on_attach,
+	capabilities = capabilities,
+};
 
 -- Elixir
 nvim_lsp.elixirls.setup{
 	on_attach = on_attach,
-	cmd = { "/usr/lib/elixir-ls/language_server.sh" };
+	cmd = { "/usr/lib/elixir-ls/language_server.sh" },
+	capabilities = capabilities,
 };
 
 -- Haskell (hls)
 nvim_lsp.hls.setup{
 	on_attach = on_attach,
+	capabilities = capabilities,
 };
 
 -- html
@@ -48,7 +54,10 @@ nvim_lsp.cssls.setup {
 }
 
 -- TS
-nvim_lsp.tsserver.setup{ on_attach=on_attach };
+nvim_lsp.tsserver.setup{
+	on_attach=on_attach,
+	capabilities = capabilities,
+};
 
 -- Json
 nvim_lsp.jsonls.setup {
@@ -61,6 +70,7 @@ nvim_lsp.jsonls.setup {
 			end
 		},
 	},
+	capabilities = capabilities,
 };
 
 -- C# (Omnisharp)
@@ -69,6 +79,7 @@ nvim_lsp.omnisharp.setup{
 	on_attach = on_attach,
 	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
 	root_dir = nvim_lsp.util.root_pattern("*.csproj","*.sln"),
+	capabilities = capabilities,
 };
 
 -- Python (pyright)
@@ -81,6 +92,7 @@ nvim_lsp.pyright.setup{
 			},
 		},
 	},
+	capabilities = capabilities,
 };
 
 -- Lua (sumneko)
@@ -115,21 +127,25 @@ nvim_lsp.sumneko_lua.setup {
 			},
 		},
 	},
+	capabilities = capabilities,
 };
 
 -- LaTeX (texlab)
 nvim_lsp.texlab.setup{
 	on_attach = on_attach,
+	capabilities = capabilities,
 };
 
 -- Vim
 nvim_lsp.vimls.setup{
 	on_attach = on_attach,
+	capabilities = capabilities,
 };
 
 -- Nix (rnix-lsp)
 nvim_lsp.rnix.setup{
 	on_attach = on_attach,
+	capabilities = capabilities,
 };
 
 utils.nvim_create_augroups(

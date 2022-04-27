@@ -49,8 +49,20 @@ return require("packer").startup(function(use)
 		"SirVer/ultisnips",
 		config = function() require "plugin.snippets" end,
 	};
-	use {"honza/vim-snippets"};
+	use {"hrsh7th/cmp-nvim-ultisnips"};
+
 	use {"mattn/emmet-vim", ft = {"html", "css", "js", "ts"}};
+	--
+	-- cmp
+	use {"hrsh7th/cmp-nvim-lsp"};
+	use {"hrsh7th/cmp-buffer"};
+	use {"hrsh7th/cmp-path"};
+	use {"hrsh7th/cmp-cmdline"};
+	use {
+		"hrsh7th/nvim-cmp",
+		config = function() require "plugin.cmp" end,
+	};
+
 
 	-- File tree
 	use {
