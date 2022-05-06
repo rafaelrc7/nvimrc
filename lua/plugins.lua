@@ -80,7 +80,7 @@ return require("packer").startup(function(use)
 	use {"puremourning/vimspector"};
 	use {"mbbill/undotree"};
 	use {"preservim/nerdcommenter"};
-	use {"Raimondi/delimitMate"};
+	use {"windwp/nvim-autopairs"};
 	use {"tpope/vim-dispatch", cmd = {"Dispatch", "Make", "Focus", "Start"}};
 	use {"vim-utils/vim-man"};
 	use {"preservim/tagbar"};
