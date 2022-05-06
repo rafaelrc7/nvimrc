@@ -146,6 +146,13 @@ nvim_lsp.rnix.setup{
 	capabilities = capabilities,
 };
 
+-- GO (gopls)
+nvim_lsp.gopls.setup{
+	cmd = { "${gopls}/bin/gopls" },
+	on_attach = on_attach,
+	capabilities = capabilities,
+};
+
 utils.nvim_create_augroups(
 	{
 		lsp_jdtls = {
