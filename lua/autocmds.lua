@@ -1,4 +1,5 @@
 local utils = require("utils");
+local api = vim.api
 
 local autocmds = {
 	trim_white_space = {
@@ -19,4 +20,11 @@ local autocmds = {
 }
 
 utils.nvim_create_augroups(autocmds);
+
+local goGroup = api.nvim_create_augroup("go", { clear = true })
+api.nvim_create_autocmd("Filetype", {
+	pattern = "go",
+	command = "autocmd BufWritePost * !gofmt -w %",
+	group = goGroup
+})
 
