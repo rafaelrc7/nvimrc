@@ -1,30 +1,33 @@
-local utils = require("utils");
 local api = vim.api
-
-local autocmds = {
-	trim_white_space = {
-		{"BufWritePre", "*", [[:%s/\s\+$//e]]}
-	},
-
-	haskell_indent = {
-		{"FileType", "haskell,cabal", [[:setlocal shiftwidth=2 softtabstop=2 tabstop=8 expandtab]]}
-	},
-
-	nix_indent = {
-		{"FileType", "nix", [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]]}
-	},
-
-	elixir_indent = {
-		{"FileType", "elixir", [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]]}
-	},
-}
-
-utils.nvim_create_augroups(autocmds);
 
 local goGroup = api.nvim_create_augroup("go", { clear = true })
 api.nvim_create_autocmd("Filetype", {
 	pattern = "go",
-	command = "autocmd BufWritePost * !gofmt -w %",
-	group = goGroup
+	command = [[autocmd BufWritePost * silent !gofmt -w %]],
+	group = goGroup,
+})
+
+local indentGroup = api.nvim_create_augroup("indent", { clear = true })
+api.nvim_create_autocmd("FileType", {
+	pattern = { "haskell", "cabal", },
+	command = [[:setlocal shiftwidth=2 softtabstop=2 tabstop=8 expandtab]],
+	group = indentGroup,
+})
+api.nvim_create_autocmd("FileType", {
+	pattern = "nix",
+	command = [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]],
+	group = indentGroup,
+})
+api.nvim_create_autocmd("FileType", {
+	pattern = "elixir",
+	command = [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]],
+	group = indentGroup,
+})
+
+local trimGroup = api.nvim_create_augroup("trim", { clear = true })
+api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	command = [[:%s/\s\+$//e]],
+	group = trimGroup,
 })
 
