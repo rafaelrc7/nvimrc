@@ -7,8 +7,9 @@ return require("packer").startup(function(use)
 	use {"nvim-lua/plenary.nvim"};
 
 	use {
-		"vim-airline/vim-airline",
-		config = function() require "plugin.airline" end,
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function() require "plugin.lualine" end,
 	};
 	use {"edkolev/tmuxline.vim", opt = true};
 
