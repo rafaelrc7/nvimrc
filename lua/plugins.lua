@@ -11,6 +11,7 @@ return require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function() require "plugin.lualine" end,
 	};
+	use {"arkav/lualine-lsp-progress"};
 	use {"edkolev/tmuxline.vim", opt = true};
 
 	-- Syntax and language specific stuff
