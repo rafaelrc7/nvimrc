@@ -23,6 +23,11 @@ api.nvim_create_autocmd("FileType", {
 	command = [[:setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab]],
 	group = indentGroup,
 })
+api.nvim_create_autocmd("FileType", {
+	pattern = "asm",
+	command = [[:setlocal shiftwidth=8 tabstop=8]],
+	group = indentGroup,
+})
 
 local trimGroup = api.nvim_create_augroup("trim", { clear = true })
 api.nvim_create_autocmd("BufWritePre", {
