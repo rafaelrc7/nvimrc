@@ -25,6 +25,9 @@ map("n", "<Esc>", ":nohl<CR>", {silent=true});
 -- Shift+M starts Markdown Preview
 map("n", "<S-m>", ":MarkdownPreview<CR>", {silent=true, noremap=true});
 
+-- Toggle spellcheck
+map("", "<leader>s", ":setlocal spell!<CR>", {silent=true, noremap=true});
+
 -- Window navigation
 map("", "<leader>h", ":wincmd h<CR>", {silent=true, noremap=true});
 map("", "<leader>j", ":wincmd j<CR>", {silent=true, noremap=true});
