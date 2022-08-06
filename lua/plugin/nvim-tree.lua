@@ -1,8 +1,6 @@
 local g = vim.g;
 local utils = require "utils";
 
-g.nvim_tree_highlight_opened_files = 1;
-
 utils.nvim_create_augroups(
 	{
 		nvim_tree = {
@@ -24,6 +22,9 @@ require "nvim-tree".setup {
 		open_file = {
 			quit_on_open = true,
 		},
+	},
+	renderer = {
+		highlight_opened_files = "all",
 	},
 };
 
