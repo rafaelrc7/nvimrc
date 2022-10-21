@@ -1,18 +1,16 @@
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
--- Neorg parser
-parser_configs.norg = {
-	install_info = {
-		url = "https://github.com/nvim-neorg/tree-sitter-norg",
-		files = { "src/parser.c", "src/scanner.cc" },
-		branch = "main"
-	},
-}
-
 require'nvim-treesitter.configs'.setup {
 	highlight = {
 		enable = true,  -- false will disable the whole extension
-		additional_vim_regex_highlighting = true,
+		disable = function(lang, buf)
+			local max_filesize = 100 * 1024 -- 100 KB
+			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+			if ok and stats and stats.size > max_filesize then
+				return true
+			end
+		end,
+		additional_vim_regex_highlighting = { "latex", "markdown", },
 	},
 	indent = {
 		enable = true,
