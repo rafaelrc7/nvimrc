@@ -3,7 +3,7 @@ local utils = require("utils");
 -- nvim-lsp
 local nvim_lsp = require("lspconfig");
 local pid = vim.fn.getpid()
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local home_dir = os.getenv("HOME")
 
 local function on_attach()
