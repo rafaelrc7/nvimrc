@@ -37,7 +37,6 @@ return require("packer").startup(function(use)
 	use {
 		"neovim/nvim-lspconfig",
 		config = function()
-			require "plugin.lspconfig"
 			require "plugin.lsp"
 		end,
 	};
