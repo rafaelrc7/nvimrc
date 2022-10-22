@@ -1,6 +1,7 @@
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
 require'nvim-treesitter.configs'.setup {
+	parser_install_dir = os.getenv("HOME") .. "/.local/share/nvim/site",
 	highlight = {
 		enable = true,  -- false will disable the whole extension
 		disable = function(lang, buf)
