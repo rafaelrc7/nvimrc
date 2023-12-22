@@ -36,3 +36,10 @@ api.nvim_create_autocmd("BufWritePre", {
 	group = trimGroup,
 })
 
+local neomuttGroup = api.nvim_create_augroup("neomutt", { clear = true })
+api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+	pattern = "*mutt-*",
+	command = [[:setfiletype mail]],
+	group = neomuttGroup,
+})
+
