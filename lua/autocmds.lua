@@ -39,7 +39,31 @@ api.nvim_create_autocmd("BufWritePre", {
 local neomuttGroup = api.nvim_create_augroup("neomutt", { clear = true })
 api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 	pattern = "*mutt-*",
-	command = [[:setfiletype mail]],
+	callback = function ()
+		 vim.opt.textwidth = 72;
+		 vim.opt.filetype = "mail";
+	end,
 	group = neomuttGroup,
+})
+
+local function updateColorColumn()
+	local textwidth = vim.opt.textwidth:get()
+	if not textwidth or textwidth == 0 then
+		vim.opt.colorcolumn = {"80", "120"};
+	else
+		vim.opt.colorcolumn = tostring(textwidth);
+	end
+end
+
+local colorColumnGroup = api.nvim_create_augroup("colorcolumn", { clear = true })
+api.nvim_create_autocmd("OptionSet", {
+	pattern = "textwidth",
+	callback = updateColorColumn,
+	group = colorColumnGroup,
+})
+api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = updateColorColumn,
+	group = colorColumnGroup,
 })
 
