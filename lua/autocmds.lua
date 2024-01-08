@@ -7,6 +7,13 @@ api.nvim_create_autocmd("Filetype", {
 	group = goGroup,
 })
 
+local rustGroup = api.nvim_create_augroup("rust", { clear = true })
+api.nvim_create_autocmd("Filetype", {
+	pattern = "rust",
+	command = [[autocmd BufWritePost * silent !cargo fmt]],
+	group = rustGroup,
+})
+
 local indentGroup = api.nvim_create_augroup("indent", { clear = true })
 api.nvim_create_autocmd("FileType", {
 	pattern = { "haskell", "cabal", },
