@@ -2,7 +2,7 @@ local map = vim.api.nvim_set_keymap;
 
 -- Map leader key to <space>
 map("n", "<space>", "", {noremap = true});
-vim.g.mapleader = " ";
+vim.g.mapleader = ",";
 
 -- Terminal
 map("n", "<leader>tt", ":terminal<CR>", {});
